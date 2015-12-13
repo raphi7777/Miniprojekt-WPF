@@ -39,14 +39,14 @@ namespace ch.hsr.wpf.gadgeothek.service
         public List<Reservation> GetAllReservations()
         {
             var list = GetList<Reservation>(false);
-            list.ForEach(LoadReservationRefs);
+            list?.ForEach(LoadReservationRefs);
             return list;
         }
 
         public List<Loan> GetAllLoans()
         {
             var list = GetList<Loan>(false);
-            list.ForEach(LoadLoanRefs);
+            list?.ForEach(LoadLoanRefs);
             return list;
         }
 

@@ -22,7 +22,7 @@ Setzen Sie diesen Code in Ihrem Miniprojekt ein, um Zeit und Aufwand zu sparen. 
 
 ---
 ## Verwendete NuGet-Packages
-Die Projektvorlage nutzt folgende NuGet-Packages. Diese sind nicht auf GitHub, sondern müssen in Visual Studio vor der ersten Verwendung heruntergeladen werden. Ein entsprechender Hinweis müsste eigentlich in Visual Studio angezeigt werden, wenn Sie die Projektvorlage heruntergeladen haben und ein erstes mal Kompilieren.
+Die Projektvorlage nutzt folgende NuGet-Packages. Diese sind nicht auf GitHub, sondern müssen in Visual Studio vor der ersten Verwendung heruntergeladen werden. Der Download sollte beim ersten Kompilieren jedoch automatisch ausgelöst werden.
 
 * __Newtonsoft.Json__:
 

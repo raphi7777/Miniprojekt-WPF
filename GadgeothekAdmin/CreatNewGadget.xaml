@@ -1,0 +1,67 @@
+﻿<Window x:Class="GadgeothekAdmin.CreatNewGadget"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GadgeothekAdmin"
+        mc:Ignorable="d"
+        Title="Create a new Gadget"
+        Style="{StaticResource CreateWindowStyle}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Label Content="Manufacturer: " 
+               Grid.Row="0"
+               Grid.Column="0"
+               Style="{StaticResource LabelStyle}"/>
+        <TextBox Name="TextManufacturer" 
+                 Grid.Row="0" 
+                 Grid.Column="1"/>
+        <Label Content="Name: " 
+               Grid.Row="1"
+               Grid.Column="0"
+               Style="{StaticResource LabelStyle}"/>
+        <TextBox Name="TextName" 
+                 Grid.Row="1" 
+                 Grid.Column="1"/>
+        <Label Content="Price: " 
+               Grid.Row="2"
+               Grid.Column="0"
+               Style="{StaticResource LabelStyle}"/>
+        <TextBox Name="TexPrice" 
+                 Grid.Row="2" 
+                 Grid.Column="1"
+                 PreviewTextInput="CheckValidation"/>
+        <Label Content="Condition: " 
+               Grid.Row="3"
+               Grid.Column="0"
+               Style="{StaticResource LabelStyle}"/>
+        <TextBox Name="Condition" 
+                 Grid.Row="3" 
+                 Grid.Column="1"/>
+        <ComboBox Style="{StaticResource ComboBoxStyle}"
+                  Name="ConditionComboBox"
+                  Grid.Row="3"
+                  Grid.Column="1">
+                    <ComboBoxItem IsSelected="True">New</ComboBoxItem>
+                    <ComboBoxItem>Good</ComboBoxItem>
+                    <ComboBoxItem>Damaged</ComboBoxItem>
+                    <ComboBoxItem>Waste</ComboBoxItem>
+                    <ComboBoxItem>Lost</ComboBoxItem>
+        </ComboBox>
+        <Button Style="{StaticResource ButtonStyle}"
+                Name="SaveButton"
+                Grid.Row="4"
+                Grid.Column="1"
+                Content="Create" Click="SaveButton_Click"/>
+    </Grid>
+</Window>

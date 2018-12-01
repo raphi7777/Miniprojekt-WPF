@@ -41,6 +41,11 @@ namespace GadgeothekAdmin
         {
             CreatNewGadget createGadget = new CreatNewGadget();
             createGadget.ShowDialog();
+
+            if (createGadget.newGadget != null)
+            {
+                ObservableGadgets.Add(createGadget.newGadget);
+            }
         }
 
         private void GadgetDeleteButton_OnClick(object sender, RoutedEventArgs e)

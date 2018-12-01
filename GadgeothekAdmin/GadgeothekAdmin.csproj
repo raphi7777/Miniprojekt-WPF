@@ -56,6 +56,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="CreatNewCustomer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CreatNewGadget.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -83,6 +87,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CreatNewCustomer.xaml.cs">
+      <DependentUpon>CreatNewCustomer.xaml</DependentUpon>
     </Compile>
     <Compile Include="CreatNewGadget.xaml.cs">
       <DependentUpon>CreatNewGadget.xaml</DependentUpon>

@@ -3,10 +3,19 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:GadgeothekAdmin"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:domain="clr-namespace:ch.hsr.wpf.gadgeothek.domain;assembly=ch.hsr.wpf.gadgeothek"
         mc:Ignorable="d"
         Title="Create a new Gadget"
         Style="{StaticResource CreateWindowStyle}">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum" MethodName="GetValues"
+                            ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="domain:Condition"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -19,44 +28,45 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Label Content="Manufacturer: " 
+        <Label Style="{StaticResource LabelStyle}"
+               Content="Manufacturer: " 
                Grid.Row="0"
-               Grid.Column="0"
-               Style="{StaticResource LabelStyle}"/>
+               Grid.Column="0"/>
         <TextBox Name="TextManufacturer" 
+                 Text="{Binding Manufacturer}"
                  Grid.Row="0" 
                  Grid.Column="1"/>
-        <Label Content="Name: " 
+        <Label Style="{StaticResource LabelStyle}"
+               Content="Name: " 
                Grid.Row="1"
-               Grid.Column="0"
-               Style="{StaticResource LabelStyle}"/>
-        <TextBox Name="TextName" 
+               Grid.Column="0"/>
+        <TextBox Name="TextName"
+                 Text="{Binding Name}"
                  Grid.Row="1" 
                  Grid.Column="1"/>
-        <Label Content="Price: " 
+        <Label Style="{StaticResource LabelStyle}"
+               Content="Price:" 
                Grid.Row="2"
-               Grid.Column="0"
-               Style="{StaticResource LabelStyle}"/>
+               Grid.Column="0"/>
         <TextBox Name="TexPrice" 
+                 Text="{Binding Price}"
                  Grid.Row="2" 
                  Grid.Column="1"
                  PreviewTextInput="CheckValidation"/>
-        <Label Content="Condition: " 
+        <Label Style="{StaticResource LabelStyle}"
+               Content="Condition: " 
                Grid.Row="3"
-               Grid.Column="0"
-               Style="{StaticResource LabelStyle}"/>
-        <TextBox Name="Condition" 
+               Grid.Column="0"/>
+        <TextBox Name="Condition"
+                 Text="{Binding Condition}"
                  Grid.Row="3" 
                  Grid.Column="1"/>
         <ComboBox Style="{StaticResource ComboBoxStyle}"
+                  ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
+                  SelectedIndex="0"
                   Name="ConditionComboBox"
                   Grid.Row="3"
-                  Grid.Column="1">
-                    <ComboBoxItem IsSelected="True">New</ComboBoxItem>
-                    <ComboBoxItem>Good</ComboBoxItem>
-                    <ComboBoxItem>Damaged</ComboBoxItem>
-                    <ComboBoxItem>Waste</ComboBoxItem>
-                    <ComboBoxItem>Lost</ComboBoxItem>
+                  Grid.Column="1">  
         </ComboBox>
         <Button Style="{StaticResource ButtonStyle}"
                 Name="SaveButton"

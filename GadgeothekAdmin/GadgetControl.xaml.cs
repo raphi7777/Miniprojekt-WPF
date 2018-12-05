@@ -1,32 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using ch.hsr.wpf.gadgeothek.domain;
 using ch.hsr.wpf.gadgeothek.service;
 
 namespace GadgeothekAdmin
 {
-    /// <summary>
-    /// Interaction logic for GadgetControl.xaml
-    /// </summary>
     public partial class GadgetControl : UserControl
     {
         private LibraryAdminService _adminService;
         private string url = ConfigurationManager.AppSettings["library"];
-
         public ObservableCollection<Gadget> ObservableGadgets { get; set; }
         public Gadget SelectedGadget { get; set; }
 
@@ -42,7 +26,7 @@ namespace GadgeothekAdmin
             CreatNewGadget createGadget = new CreatNewGadget();
             createGadget.ShowDialog();
 
-            if (createGadget.newGadget != null)
+            if (!createGadget.newGadget.Name.Equals(""))
             {
                 ObservableGadgets.Add(createGadget.newGadget);
             }

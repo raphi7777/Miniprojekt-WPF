@@ -16,7 +16,7 @@
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
         <DataGrid Style="{StaticResource DataGridStyle}"
-                  ItemsSource="{Binding Path=ObservableGadgets}"
+                  ItemsSource="{Binding ObservableGadgets}"
                   SelectedItem="{Binding SelectedGadget}"
                   Name="GadgetTable"
                   Grid.Column="0"
@@ -28,19 +28,19 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Inventory Number"
                                     Width="*" 
-                                    Binding="{Binding Path=InventoryNumber}"/>
+                                    Binding="{Binding InventoryNumber}"/>
                 <DataGridTextColumn Header="Manufacturer" 
                                     Width="*" 
-                                    Binding="{Binding Path=Manufacturer}" />
+                                    Binding="{Binding Manufacturer}" />
                 <DataGridTextColumn Header="Name" 
                                     Width="*" 
-                                    Binding="{Binding Path=Name}" />
+                                    Binding="{Binding Name}" />
                 <DataGridTextColumn Header="Price" 
                                     Width="*" 
-                                    Binding="{Binding Path=Price}" />
+                                    Binding="{Binding Price}" />
                 <DataGridTextColumn Header="Condition" 
                                     Width="*" 
-                                    Binding="{Binding Path=Condition}" />
+                                    Binding="{Binding Condition}" />
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

@@ -6,7 +6,7 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:domain="clr-namespace:ch.hsr.wpf.gadgeothek.domain;assembly=ch.hsr.wpf.gadgeothek"
         mc:Ignorable="d"
-        Title="Create a new Gadget"
+        Title="Gadget Details"
         Style="{StaticResource CreateWindowStyle}">
     <Window.Resources>
         <ObjectDataProvider x:Key="dataFromEnum" MethodName="GetValues"
@@ -57,13 +57,9 @@
                Content="Condition: " 
                Grid.Row="3"
                Grid.Column="0"/>
-        <TextBox Name="Condition"
-                 Text="{Binding Condition}"
-                 Grid.Row="3" 
-                 Grid.Column="1"/>
         <ComboBox Style="{StaticResource ComboBoxStyle}"
                   ItemsSource="{Binding Source={StaticResource dataFromEnum}}"
-                  SelectedIndex="0"
+                  SelectedValue="{Binding Condition}"
                   Name="ConditionComboBox"
                   Grid.Row="3"
                   Grid.Column="1">  
@@ -72,6 +68,6 @@
                 Name="SaveButton"
                 Grid.Row="4"
                 Grid.Column="1"
-                Content="Create" Click="SaveButton_Click"/>
+                Content="Save" Click="SaveButton_Click"/>
     </Grid>
 </Window>

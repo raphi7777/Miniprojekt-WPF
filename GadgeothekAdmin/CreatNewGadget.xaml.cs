@@ -10,6 +10,7 @@ namespace GadgeothekAdmin
     public partial class CreatNewGadget : Window
     {
         public Gadget newGadget { get; set; }
+        public Gadget editGadget { get; set; }
         private LibraryAdminService _adminService;
         private string url = ConfigurationManager.AppSettings["library"];
 
@@ -20,13 +21,30 @@ namespace GadgeothekAdmin
             DataContext = newGadget;
         }
 
+        public CreatNewGadget(Gadget gadget)
+        {
+            InitializeComponent();
+            editGadget = gadget;
+            DataContext = editGadget;
+        }
+
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             _adminService = new LibraryAdminService(url);
 
-            if (_adminService.AddGadget(newGadget))
+            if (editGadget != null)
             {
-                Close();
+                if (_adminService.UpdateGadget(editGadget))
+                {
+                    Close();
+                }
+            }
+            else
+            {
+                if (_adminService.AddGadget(newGadget))
+                {
+                    Close();
+                }
             }
         }
 

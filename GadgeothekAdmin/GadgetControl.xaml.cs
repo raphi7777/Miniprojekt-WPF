@@ -53,5 +53,10 @@ namespace GadgeothekAdmin
             }
         }
 
+        private void GadgetEditButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            CreatNewGadget editGadget = new CreatNewGadget(SelectedGadget);
+            editGadget.ShowDialog();
+        }
     }
 }

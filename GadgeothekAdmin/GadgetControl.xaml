@@ -41,6 +41,16 @@
                 <DataGridTextColumn Header="Condition" 
                                     Width="*" 
                                     Binding="{Binding Condition}" />
+                                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Style="{StaticResource EditButtonStyle}"
+                                    Name="GadgetEditButton" 
+                                    Content="Edit" 
+                                    Click="GadgetEditButton_OnClick" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

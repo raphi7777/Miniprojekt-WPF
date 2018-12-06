@@ -1,10 +1,9 @@
-using System.IO;
+﻿using System.IO;
 using System.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TestStack.White;
 
-
-namespace GadgedothekAdminTest
+namespace GadgeothekAdminTests
 {
     [TestClass]
     public class MainWindowTest
@@ -17,7 +16,7 @@ namespace GadgedothekAdminTest
         public void Initialize()
         {
             _baseDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            //_sutPath = Path.Combine(_baseDir, $"{nameof(GadgedothekAdmin)}.exe");
+            _sutPath = Path.Combine(_baseDir, $"{nameof(GadgeothekAdmin)}.exe");
             _app = Application.Launch(_sutPath);
         }
 
@@ -30,6 +29,7 @@ namespace GadgedothekAdminTest
         [TestMethod]
         public void TestMethod1()
         {
+
         }
     }
 }

@@ -10,7 +10,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="4*" />
             <ColumnDefinition Width="1*" />
-        </Grid.ColumnDefinitions>
+        </Grid.ColumnDefinitions>   
         <Grid.RowDefinitions>
             <RowDefinition Height="7*" />
             <RowDefinition Height="1*" />
@@ -24,7 +24,8 @@
                   Grid.ColumnSpan="2"
                   SelectionUnit="FullRow"
                   AutoGenerateColumns="False"
-                  IsReadOnly="True">
+                  IsReadOnly="True"
+                  ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Inventory Number"
                                     Width="*" 

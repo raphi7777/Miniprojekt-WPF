@@ -23,7 +23,7 @@ namespace GadgeothekAdmin
 
         private void GadgetCreateButton_Click(object sender, RoutedEventArgs e)
         {
-            CreatNewGadget createGadget = new CreatNewGadget();
+            CreateNewGadget createGadget = new CreateNewGadget();
             createGadget.ShowDialog();
 
             if (!createGadget.newGadget.Name.Equals(""))
@@ -55,7 +55,7 @@ namespace GadgeothekAdmin
 
         private void GadgetEditButton_OnClick(object sender, RoutedEventArgs e)
         {
-            CreatNewGadget editGadget = new CreatNewGadget(SelectedGadget);
+            CreateNewGadget editGadget = new CreateNewGadget(SelectedGadget);
             editGadget.ShowDialog();
         }
     }

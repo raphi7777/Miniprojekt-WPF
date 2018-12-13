@@ -7,21 +7,21 @@ using ch.hsr.wpf.gadgeothek.service;
 
 namespace GadgeothekAdmin
 {
-    public partial class CreatNewGadget : Window
+    public partial class CreateNewGadget : Window
     {
         public Gadget newGadget { get; set; }
         public Gadget editGadget { get; set; }
         private LibraryAdminService _adminService;
         private string url = ConfigurationManager.AppSettings["library"];
 
-        public CreatNewGadget()
+        public CreateNewGadget()
         {
             InitializeComponent();
             newGadget = new Gadget("");
             DataContext = newGadget;
         }
 
-        public CreatNewGadget(Gadget gadget)
+        public CreateNewGadget(Gadget gadget)
         {
             InitializeComponent();
             editGadget = gadget;

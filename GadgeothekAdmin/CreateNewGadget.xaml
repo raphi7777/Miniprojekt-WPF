@@ -1,4 +1,4 @@
-﻿<Window x:Class="GadgeothekAdmin.CreatNewGadget"
+﻿<Window x:Class="GadgeothekAdmin.CreateNewGadget"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -48,7 +48,7 @@
                Content="Price:" 
                Grid.Row="2"
                Grid.Column="0"/>
-        <TextBox Name="TexPrice" 
+        <TextBox Name="TextPrice" 
                  Text="{Binding Price}"
                  Grid.Row="2" 
                  Grid.Column="1"

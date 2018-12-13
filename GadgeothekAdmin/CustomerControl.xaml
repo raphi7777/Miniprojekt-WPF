@@ -3,10 +3,68 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:GadgeothekAdmin"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="500" d:DesignWidth="800">
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="7*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <DataGrid Style="{StaticResource DataGridStyle}"
+                  ItemsSource="{Binding ObservableCustomers}"
+                  SelectedItem="{Binding SelectedCustomer}"
+                  Name="CustomerTable"
+                  Grid.Column="0"
+                  Grid.Row="0"
+                  Grid.ColumnSpan="2"
+                  SelectionUnit="FullRow"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name"
+                                    Width="*" 
+                                    Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Email" 
+                                    Width="*" 
+                                    Binding="{Binding Email}" />
+                <DataGridTextColumn Header="Password" 
+                                    Width="*" 
+                                    Binding="{Binding Password}" />
+                <DataGridTextColumn Header="Studentnumber" 
+                                    Width="*" 
+                                    Binding="{Binding Studentnumber}" />
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Style="{StaticResource EditButtonStyle}"
+                                    Name="CustomerEditButton" 
+                                    Content="Edit" 
+                                    Click="CustomerEditButton_OnClick" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Style="{StaticResource DeleteButtonStyle}"
+                                    Name="CustomerDeleteButton" 
+                                    Content="Delete" 
+                                    Click="CustomerDeleteButton_OnClick" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Style="{StaticResource ButtonStyle}"
+                Name="CustomerCreateButton"
+                Grid.Column="1"
+                Grid.Row="1" 
+                Content="Create Customer" 
+                Click="CustomerCreateButton_Click" />
     </Grid>
 </UserControl>

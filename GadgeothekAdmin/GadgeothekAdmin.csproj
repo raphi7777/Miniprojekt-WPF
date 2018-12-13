@@ -56,11 +56,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="CreatNewCustomer.xaml">
+    <Page Include="CreateNewCustomer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CreatNewGadget.xaml">
+    <Page Include="CreateNewGadget.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -88,11 +88,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CreatNewCustomer.xaml.cs">
-      <DependentUpon>CreatNewCustomer.xaml</DependentUpon>
+    <Compile Include="CreateNewCustomer.xaml.cs">
+      <DependentUpon>CreateNewCustomer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CreatNewGadget.xaml.cs">
-      <DependentUpon>CreatNewGadget.xaml</DependentUpon>
+    <Compile Include="CreateNewGadget.xaml.cs">
+      <DependentUpon>CreateNewGadget.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomerControl.xaml.cs">
       <DependentUpon>CustomerControl.xaml</DependentUpon>
@@ -140,5 +140,6 @@
       <Name>ch.hsr.wpf.gadgeothek</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

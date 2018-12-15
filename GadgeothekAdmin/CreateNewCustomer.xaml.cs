@@ -11,7 +11,7 @@ namespace GadgeothekAdmin
     /// Interaction logic for CreateNewCustomer.xaml
     /// </summary>
     public partial class CreateNewCustomer : Window
-    {            
+    {
         public Customer newCustomer { get; set; }
         public Customer editCustomer { get; set; }
         private LibraryAdminService _adminService;
@@ -33,21 +33,28 @@ namespace GadgeothekAdmin
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            _adminService = new LibraryAdminService(url);
-
-            if (editCustomer != null)
+            if (newCustomer != null && newCustomer.Studentnumber != null)
             {
-                if (_adminService.UpdateCustomer(editCustomer))
+                _adminService = new LibraryAdminService(url);
+
+                if (editCustomer != null)
                 {
-                    Close();
+                    if (_adminService.UpdateCustomer(editCustomer))
+                    {
+                        Close();
+                    }
+                }
+                else
+                {
+                    if (_adminService.AddCustomer(newCustomer))
+                    {
+                        Close();
+                    }
                 }
             }
             else
             {
-                if (_adminService.AddCustomer(newCustomer))
-                {
-                    Close();
-                }
+                //TODO dialog warning
             }
         }
 

@@ -59,7 +59,8 @@
         <TextBox Name="TextStudentnumber"
                  Text="{Binding Studentnumber}"
                  Grid.Row="3" 
-                 Grid.Column="1"/>
+                 Grid.Column="1"
+                 PreviewTextInput="CheckValidation"/>
         <Button Style="{StaticResource ButtonStyle}"
                 Name="SaveButton"
                 Grid.Row="4"

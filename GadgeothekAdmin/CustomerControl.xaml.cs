@@ -29,7 +29,7 @@ namespace GadgeothekAdmin
             CreateNewCustomer createCustomer = new CreateNewCustomer();
             createCustomer.ShowDialog();
 
-            if (!createCustomer.newCustomer.Name.Equals(""))
+            if (createCustomer.newCustomer.Studentnumber != null)
             {
                 ObservableCustomers.Add(createCustomer.newCustomer);
             }

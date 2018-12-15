@@ -1,38 +1,35 @@
-﻿<Window x:Class="GadgeothekAdmin.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mycontrols="clr-namespace:GadgeothekAdmin"   
+        x:Class="GadgeothekAdmin.MainWindow"
         mc:Ignorable="d"
         Title="GadgeothekAdmin" 
         Style="{StaticResource MainWindowStyle}">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>        
-        <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="9*"/>
-        </Grid.RowDefinitions>
-        <ToggleButton Style="{StaticResource ToggleButtonStyle}"
-                      Name="ButtonGadgetList" 
-                      Grid.Column="0" 
-                      Grid.Row="0" 
-                      Content="Gadget List" Checked="ButtonGadgetList_Checked"/>
-        <ToggleButton Style="{StaticResource ToggleButtonStyle}"
-                      Name="ButtonLoanList" 
-                      Grid.Column="1" 
-                      Grid.Row="0" 
-                      Content="Loan List" Checked="ButtonLoanList_Checked"/>
-        <ToggleButton Style="{StaticResource ToggleButtonStyle}"
-                      Name="ButtonCustomerList" 
-                      Grid.Column="2" 
-                      Grid.Row="0" 
-                      Content="Customer List" Checked="ButtonCustomerList_Checked"/>
-        <DockPanel Name="ListControlPanel" Grid.Row="1" 
-                   Grid.Column="0" 
-                   Grid.ColumnSpan="3" />
-    </Grid>
+   
+    <TabControl x:Name="Tabs">
+        <TabItem Header="Gadget List"
+                 x:Name="gadgetList">
+            <Grid>
+                <mycontrols:GadgetControl/>
+            </Grid>
+            
+        </TabItem>
+
+        <TabItem Header="Customer List"
+                 x:Name="customerList">
+            <Grid>
+                <mycontrols:CustomerControl/>
+            </Grid>
+        </TabItem>
+
+        <TabItem Header="Loan List"
+                 x:Name="loanList">
+            <Grid>
+                <mycontrols:LoanControl/>
+            </Grid>
+        </TabItem>
+    </TabControl>
 </Window>

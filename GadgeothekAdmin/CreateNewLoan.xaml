@@ -1,0 +1,70 @@
+﻿<Window x:Class="GadgeothekAdmin.CreateNewLoan"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:domain="clr-namespace:ch.hsr.wpf.gadgeothek.domain;assembly=ch.hsr.wpf.gadgeothek"
+        mc:Ignorable="d"
+        Title="Loan Details"
+        Style="{StaticResource CreateWindowStyle}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Label Style="{StaticResource LabelStyle}"
+               Content="Id: " 
+               Grid.Row="0"
+               Grid.Column="0"/>
+        <TextBox Text="{Binding Id}"
+                 Name="IdTextBox"
+                 Grid.Row="0"
+                 Grid.Column="1">
+        </TextBox>
+        <Label Style="{StaticResource LabelStyle}"
+               Content="Customer: " 
+               Grid.Row="1"
+               Grid.Column="0"/>
+        <ComboBox Style="{StaticResource ComboBoxStyle}"
+                  ItemsSource="{Binding ObservableCustomers}"
+                  SelectedValue="{Binding Customer}"
+                  DisplayMemberPath="Name"
+                  Name="CustomerComboBox"
+                  Grid.Row="1"
+                  Grid.Column="1">
+        </ComboBox>
+        <Label Style="{StaticResource LabelStyle}"
+               Content="Gadget: " 
+               Grid.Row="2"
+               Grid.Column="0"/>
+        <ComboBox Style="{StaticResource ComboBoxStyle}"
+                  ItemsSource="{Binding ObservableGadgets}"
+                  SelectedValue="{Binding Gadget}"
+                  DisplayMemberPath="Name"
+                  Name="GadgetComboBox"
+                  Grid.Row="2"
+                  Grid.Column="1">
+        </ComboBox>
+        <Label Style="{StaticResource LabelStyle}"
+               Content="Pickup date: " 
+               Grid.Row="3"
+               Grid.Column="0"/>
+        <DatePicker Name="PickupDateDatePicker"
+                SelectedDate="{Binding PickupDate}"      
+                Grid.Row="3" 
+                Grid.Column="1"/>
+        <Button Style="{StaticResource ButtonStyle}"
+                Name="SaveButton"
+                Grid.Row="4"
+                Grid.Column="1"
+                Content="Save" Click="SaveButton_Click"/>
+    </Grid>
+</Window>

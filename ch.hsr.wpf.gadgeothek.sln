@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.28307.136
+VisualStudioVersion = 15.0.28010.2050
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ch.hsr.wpf.gadgeothek", "ch.hsr.wpf.gadgeothek\ch.hsr.wpf.gadgeothek.csproj", "{AC1EEAA5-EA41-46FC-8AFE-F0CF4B936ABB}"
 EndProject
@@ -12,6 +12,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GadgeothekAdmin", "GadgeothekAdmin\GadgeothekAdmin.csproj", "{8D2F34A3-FA8C-4016-B132-EB737F722C3D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GadgeothekAdminTests", "GadgeothekAdminTests\GadgeothekAdminTests.csproj", "{9167C77A-CE0C-40E7-8084-8AD00CA476FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment1.Mvvm.Util", "..\..\VisualStudio\Assignment1.Mvvm\Assignment1.Mvvm.Util\Assignment1.Mvvm.Util.csproj", "{C284DADB-D4AA-46A6-990E-82F599553AEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWPF", "..\..\VisualStudio\HelloWPF\HelloWPF\HelloWPF.csproj", "{C2AB5C88-5149-443D-A21B-024201B98F52}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,11 +43,19 @@ Global
 		{9167C77A-CE0C-40E7-8084-8AD00CA476FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9167C77A-CE0C-40E7-8084-8AD00CA476FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9167C77A-CE0C-40E7-8084-8AD00CA476FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C284DADB-D4AA-46A6-990E-82F599553AEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C284DADB-D4AA-46A6-990E-82F599553AEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C284DADB-D4AA-46A6-990E-82F599553AEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C284DADB-D4AA-46A6-990E-82F599553AEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2AB5C88-5149-443D-A21B-024201B98F52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2AB5C88-5149-443D-A21B-024201B98F52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2AB5C88-5149-443D-A21B-024201B98F52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2AB5C88-5149-443D-A21B-024201B98F52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {FA0B8B65-FDE6-4D04-ADEB-17636FF6F57B}
+		SolutionGuid = {53CB14FF-FBE7-4EFF-B5A4-30CDB4E22AAB}
 	EndGlobalSection
 EndGlobal

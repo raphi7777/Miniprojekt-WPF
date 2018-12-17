@@ -38,6 +38,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -59,6 +60,10 @@
     <Page Include="CreateNewCustomer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CreateNewLoan.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="CreateNewGadget.xaml">
       <SubType>Designer</SubType>
@@ -88,8 +93,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BindableBase.cs" />
     <Compile Include="CreateNewCustomer.xaml.cs">
       <DependentUpon>CreateNewCustomer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CreateNewLoan.xaml.cs">
+      <DependentUpon>CreateNewLoan.xaml</DependentUpon>
     </Compile>
     <Compile Include="CreateNewGadget.xaml.cs">
       <DependentUpon>CreateNewGadget.xaml</DependentUpon>
@@ -109,6 +118,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LoanControlViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

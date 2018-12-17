@@ -13,7 +13,6 @@ namespace GadgeothekAdmin
     public partial class CreateNewCustomer : Window
     {
         public Customer newCustomer { get; set; }
-        public Customer editCustomer { get; set; }
         private LibraryAdminService _adminService;
         private string url = ConfigurationManager.AppSettings["library"];
 
@@ -24,37 +23,20 @@ namespace GadgeothekAdmin
             DataContext = newCustomer;
         }
 
-        public CreateNewCustomer(Customer customer)
-        {
-            InitializeComponent();
-            editCustomer = customer;
-            DataContext = editCustomer;
-        }
-
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            if (newCustomer != null && newCustomer.Studentnumber != null)
+            if (newCustomer.Studentnumber != null)
             {
                 _adminService = new LibraryAdminService(url);
 
-                if (editCustomer != null)
+                if (_adminService.AddCustomer(newCustomer))
                 {
-                    if (_adminService.UpdateCustomer(editCustomer))
-                    {
-                        Close();
-                    }
-                }
-                else
-                {
-                    if (_adminService.AddCustomer(newCustomer))
-                    {
-                        Close();
-                    }
+                    Close();
                 }
             }
             else
             {
-                //TODO dialog warning
+                MessageBox.Show("You have not filled in all the values yet.", "Value missing", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 

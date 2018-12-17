@@ -58,7 +58,7 @@ namespace GadgeothekAdmin
 
         private void CustomerEditButton_OnClick(object sender, RoutedEventArgs e)
         {
-            CreateNewCustomer editCustomer = new CreateNewCustomer(SelectedCustomer);
+            EditCustomer editCustomer = new EditCustomer(SelectedCustomer);
             editCustomer.ShowDialog();
         }
     }

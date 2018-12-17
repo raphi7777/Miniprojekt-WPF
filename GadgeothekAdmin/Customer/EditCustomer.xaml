@@ -1,0 +1,60 @@
+﻿<Window x:Class="GadgeothekAdmin.EditCustomer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:domain="clr-namespace:ch.hsr.wpf.gadgeothek.domain;assembly=ch.hsr.wpf.gadgeothek"
+        mc:Ignorable="d"
+        Title="Edit Customer"
+        Style="{StaticResource CreateWindowStyle}">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="dataFromEnum" MethodName="GetValues"
+                            ObjectType="{x:Type sys:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="domain:Condition"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Label Style="{StaticResource LabelStyle}"
+               Content="Name: " 
+               Grid.Row="0"
+               Grid.Column="0"/>
+        <TextBox Name="TextName" 
+                 Text="{Binding Name}"
+                 Grid.Row="0" 
+                 Grid.Column="1"/>
+        <Label Style="{StaticResource LabelStyle}"
+               Content="Email: " 
+               Grid.Row="1"
+               Grid.Column="0"/>
+        <TextBox Name="TextEmail"
+                 Text="{Binding Email}"
+                 Grid.Row="1" 
+                 Grid.Column="1"/>
+        <Label Style="{StaticResource LabelStyle}"
+               Content="Password:" 
+               Grid.Row="2"
+               Grid.Column="0"/>
+        <TextBox Name="TextPassword" 
+                 Text="{Binding Password}"
+                 Grid.Row="2" 
+                 Grid.Column="1"/>
+        <Button Style="{StaticResource ButtonStyle}"
+                Name="SaveButton"
+                Grid.Row="3"
+                Grid.Column="1"
+                Content="Save" Click="SaveButton_Click"/>
+    </Grid>
+</Window>

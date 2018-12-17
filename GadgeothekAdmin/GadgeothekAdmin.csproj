@@ -57,19 +57,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="CreateNewCustomer.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="CreateNewLoan.xaml">
+    <Page Include="Customer\EditCustomer.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="CreateNewGadget.xaml">
+    <Page Include="Customer\CreateNewCustomer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CustomerControl.xaml">
+    <Page Include="Loan\CreateNewLoan.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Gadget\CreateNewGadget.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Customer\CustomerControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -77,11 +81,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GadgetControl.xaml">
+    <Page Include="Gadget\GadgetControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="LoanControl.xaml">
+    <Page Include="Loan\LoanControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -94,22 +98,25 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="BindableBase.cs" />
-    <Compile Include="CreateNewCustomer.xaml.cs">
+    <Compile Include="Customer\EditCustomer.xaml.cs">
+      <DependentUpon>EditCustomer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\CreateNewCustomer.xaml.cs">
       <DependentUpon>CreateNewCustomer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CreateNewLoan.xaml.cs">
+    <Compile Include="Loan\CreateNewLoan.xaml.cs">
       <DependentUpon>CreateNewLoan.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CreateNewGadget.xaml.cs">
+    <Compile Include="Gadget\CreateNewGadget.xaml.cs">
       <DependentUpon>CreateNewGadget.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CustomerControl.xaml.cs">
+    <Compile Include="Customer\CustomerControl.xaml.cs">
       <DependentUpon>CustomerControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GadgetControl.xaml.cs">
+    <Compile Include="Gadget\GadgetControl.xaml.cs">
       <DependentUpon>GadgetControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LoanControl.xaml.cs">
+    <Compile Include="Loan\LoanControl.xaml.cs">
       <DependentUpon>LoanControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
@@ -118,7 +125,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LoanControlViewModel.cs" />
+    <Compile Include="Loan\LoanControlViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

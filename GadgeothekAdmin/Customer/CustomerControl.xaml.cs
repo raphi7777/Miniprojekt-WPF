@@ -33,6 +33,7 @@ namespace GadgeothekAdmin
             {
                 ObservableCustomers.Add(createCustomer.newCustomer);
             }
+            
         }
 
         private void CustomerDeleteButton_OnClick(object sender, RoutedEventArgs e)
@@ -60,6 +61,9 @@ namespace GadgeothekAdmin
         {
             EditCustomer editCustomer = new EditCustomer(SelectedCustomer);
             editCustomer.ShowDialog();
+
+            ObservableCustomers.Remove(editCustomer.editCustomer);
+            ObservableCustomers.Add(editCustomer.editCustomer);
         }
     }
 }

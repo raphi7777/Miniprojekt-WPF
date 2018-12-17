@@ -48,7 +48,7 @@ namespace GadgeothekAdmin
 
             if (MessageBox.Show(endMessageText, "End loan", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
             {
-                Model.SelectedLoanReturnDate = DateTime.Now;
+                Model.SelectedLoan.ReturnDate = DateTime.Now;
                 _adminService.UpdateLoan(Model.SelectedLoan);
             }
         }

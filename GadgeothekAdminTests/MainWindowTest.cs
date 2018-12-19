@@ -32,7 +32,7 @@ namespace GadgeothekAdminTests
         }
 
         [TestMethod]
-        public void CreatGadgetTest()
+        public void CreateGadgetTest()
         {
             var gadgeothekAdminWindow = _app.GetWindow("GadgeothekAdmin", InitializeOption.NoCache);
             var gadgetGrid = gadgeothekAdminWindow.Get<ListView>("GadgetTable");
@@ -77,7 +77,7 @@ namespace GadgeothekAdminTests
             nameTextBox.BulkText = "iPhone Xs";
             var manufacturerTextBox = createGadgetWindow.Get<TextBox>("TextManufacturer");
             manufacturerTextBox.BulkText = "Apfel";
-            var priceTextBox = createGadgetWindow.Get<TextBox>("TexPrice");
+            var priceTextBox = createGadgetWindow.Get<TextBox>("TextPrice");
             priceTextBox.BulkText = "1399";
             var conditionComboBox = createGadgetWindow.Get<ComboBox>("ConditionComboBox");
             conditionComboBox.Select(1);

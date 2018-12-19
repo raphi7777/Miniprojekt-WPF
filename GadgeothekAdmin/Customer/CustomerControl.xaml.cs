@@ -20,6 +20,7 @@ namespace GadgeothekAdmin
         public CustomerControl()
         {
             InitializeComponent();
+            ObservableCustomers = new ObservableCollection<Customer>();
             LoadCustomers();
             DataContext = this;
         }
@@ -28,12 +29,8 @@ namespace GadgeothekAdmin
         {
             CreateNewCustomer createCustomer = new CreateNewCustomer();
             createCustomer.ShowDialog();
-
-            if (createCustomer.newCustomer.Studentnumber != null)
-            {
-                ObservableCustomers.Add(createCustomer.newCustomer);
-            }
-            
+            ObservableCustomers.Clear();
+            LoadCustomers();
         }
 
         private void CustomerDeleteButton_OnClick(object sender, RoutedEventArgs e)
@@ -50,7 +47,6 @@ namespace GadgeothekAdmin
         private void LoadCustomers()
         {
             _adminService = new LibraryAdminService(url);
-            ObservableCustomers = new ObservableCollection<Customer>();
             foreach (Customer customer in _adminService.GetAllCustomers())
             {
                 ObservableCustomers.Add(customer);
@@ -61,9 +57,8 @@ namespace GadgeothekAdmin
         {
             EditCustomer editCustomer = new EditCustomer(SelectedCustomer);
             editCustomer.ShowDialog();
-
-            ObservableCustomers.Remove(editCustomer.editCustomer);
-            ObservableCustomers.Add(editCustomer.editCustomer);
+            ObservableCustomers.Clear();
+            LoadCustomers();
         }
     }
 }

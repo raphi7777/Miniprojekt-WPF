@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Configuration;
 using System.Windows;
 using System.Windows.Controls;
@@ -17,6 +18,7 @@ namespace GadgeothekAdmin
         public GadgetControl()
         {
             InitializeComponent();
+            ObservableGadgets = new ObservableCollection<Gadget>();
             LoadGadgets();
             DataContext = this;
         }
@@ -25,11 +27,8 @@ namespace GadgeothekAdmin
         {
             CreateNewGadget createGadget = new CreateNewGadget();
             createGadget.ShowDialog();
-
-            if (!createGadget.newGadget.Name.Equals(""))
-            {
-                ObservableGadgets.Add(createGadget.newGadget);
-            }
+            ObservableGadgets.Clear();
+            LoadGadgets();
         }
 
         private void GadgetDeleteButton_OnClick(object sender, RoutedEventArgs e)
@@ -46,7 +45,6 @@ namespace GadgeothekAdmin
         private void LoadGadgets()
         {
             _adminService = new LibraryAdminService(url);
-            ObservableGadgets = new ObservableCollection<Gadget>();
             foreach (Gadget gadget in _adminService.GetAllGadgets())
             {
                 ObservableGadgets.Add(gadget);
@@ -57,6 +55,8 @@ namespace GadgeothekAdmin
         {
             CreateNewGadget editGadget = new CreateNewGadget(SelectedGadget);
             editGadget.ShowDialog();
+            ObservableGadgets.Clear();
+            LoadGadgets();
         }
     }
 }

@@ -38,8 +38,6 @@ namespace GadgeothekAdmin
         {
             CreateNewLoan createLoan = new CreateNewLoan();
             createLoan.ShowDialog();
-
-            Model.ObservableLoans.Add(createLoan.NewLoan);
         }
 
         private void LoanEndButton_OnClick(object sender, RoutedEventArgs e)

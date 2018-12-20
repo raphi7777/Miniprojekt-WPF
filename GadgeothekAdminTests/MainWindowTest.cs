@@ -6,6 +6,7 @@ using TestStack.White;
 using TestStack.White.Factory;
 using TestStack.White.UIItems;
 using TestStack.White.UIItems.ListBoxItems;
+using TestStack.White.UIItems.TabItems;
 using TestStack.White.UIItems.WindowItems;
 
 namespace GadgeothekAdminTests
@@ -38,7 +39,7 @@ namespace GadgeothekAdminTests
             var gadgetGrid = gadgeothekAdminWindow.Get<ListView>("GadgetTable");
 
             var countGadget = gadgetGrid.Items.Count;
-            CreatNewGadget(gadgeothekAdminWindow);
+            CreateNewGadget(gadgeothekAdminWindow);
             var countAddedGadget = gadgetGrid.Items.Count;
 
             Assert.IsTrue(countGadget + 1 == countAddedGadget);
@@ -68,7 +69,7 @@ namespace GadgeothekAdminTests
             okButton.Click();
         }
 
-        private void CreatNewGadget(Window gadgeothekAdminWindow)
+        private void CreateNewGadget(Window gadgeothekAdminWindow)
         {
             var createButton = gadgeothekAdminWindow.Get<Button>("GadgetCreateButton");
             createButton.Click();
@@ -83,6 +84,64 @@ namespace GadgeothekAdminTests
             conditionComboBox.Select(1);
             var applyButton = createGadgetWindow.Get<Button>("SaveButton");
             applyButton.Click();
+        }
+
+        [TestMethod]
+        public void CreateCustomerTest()
+        {
+            var gadgeothekAdminWindow = _app.GetWindow("GadgeothekAdmin", InitializeOption.NoCache);
+            var tabControl = gadgeothekAdminWindow.Get<Tab>("Tabs");
+            tabControl.SelectTabPage("Customer List");
+            var customerGrid = gadgeothekAdminWindow.Get<ListView>("CustomerTable");
+
+            var countCustomer = customerGrid.Items.Count;
+            CreateNewCustomer(gadgeothekAdminWindow);
+            var countAddedCustomer = customerGrid.Items.Count;
+
+            Assert.IsTrue(countCustomer + 1 == countAddedCustomer);
+        }
+
+        [TestMethod]
+        public void DeleteCustomerTest()
+        {
+            var gadgeothekAdminWindow = _app.GetWindow("GadgeothekAdmin", InitializeOption.NoCache);
+            var tabControl = gadgeothekAdminWindow.Get<Tab>("Tabs");
+            tabControl.SelectTabPage("Customer List");
+            var customerGrid = gadgeothekAdminWindow.Get<ListView>("CustomerTable");
+
+            var countCustomer = customerGrid.Items.Count;
+
+            DeleteCustomer(gadgeothekAdminWindow, customerGrid);
+
+            var countDeletedCustomer = customerGrid.Items.Count;
+            Assert.IsTrue(countCustomer - 1 == countDeletedCustomer);
+        }
+
+        private void CreateNewCustomer(Window gadgeothekAdminWindow)
+        {
+            var createButton = gadgeothekAdminWindow.Get<Button>("CustomerCreateButton");
+            createButton.Click();
+            var createCustomerWindow = _app.GetWindow("Create new Customer");
+            var nameTextBox = createCustomerWindow.Get<TextBox>("TextName");
+            nameTextBox.BulkText = "Anna";
+            var emailTextBox = createCustomerWindow.Get<TextBox>("TextEmail");
+            emailTextBox.BulkText = "anna@test.ch";
+            var passwordTextBox = createCustomerWindow.Get<TextBox>("TextPassword");
+            passwordTextBox.BulkText = "passwort123";
+            var studentnumberTextBox = createCustomerWindow.Get<TextBox>("TextStudentnumber");
+            studentnumberTextBox.BulkText = "501";
+            var applyButton = createCustomerWindow.Get<Button>("SaveButton");
+            applyButton.Click();
+        }
+        
+        private void DeleteCustomer(Window gadgeothekAdminWindow, ListView customerGrid)
+        {
+            var firstTableEntrie = customerGrid.Rows.First().Cells.Last();
+            firstTableEntrie.Click();
+
+            Window deleteDialogWindow = gadgeothekAdminWindow.MessageBox("Delete customer");
+            Button okButton = deleteDialogWindow.Get<Button>("Ja");
+            okButton.Click();
         }
     }
 }

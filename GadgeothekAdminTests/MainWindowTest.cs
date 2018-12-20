@@ -8,8 +8,6 @@ using TestStack.White.UIItems;
 using TestStack.White.UIItems.ListBoxItems;
 using TestStack.White.UIItems.TabItems;
 using TestStack.White.UIItems.WindowItems;
-using ch.hsr.wpf.gadgeothek.domain;
-using GadgeothekAdmin;
 
 namespace GadgeothekAdminTests
 {

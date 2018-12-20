@@ -59,16 +59,6 @@ namespace GadgeothekAdminTests
             Assert.IsTrue(countGadget - 1 == countDeletedGadget);
         }
 
-        private void DeleteGadget(Window gadgeothekAdminWindow, ListView gadgetGrid)
-        {
-            var firstTableEntrie = gadgetGrid.Rows.First().Cells.Last();
-            firstTableEntrie.Click();
-
-            Window deleteDialogWindow = gadgeothekAdminWindow.MessageBox("Delete gadget");
-            Button okButton = deleteDialogWindow.Get<Button>("Ja");
-            okButton.Click();
-        }
-
         private void CreateNewGadget(Window gadgeothekAdminWindow)
         {
             var createButton = gadgeothekAdminWindow.Get<Button>("GadgetCreateButton");
@@ -84,6 +74,16 @@ namespace GadgeothekAdminTests
             conditionComboBox.Select(1);
             var applyButton = createGadgetWindow.Get<Button>("SaveButton");
             applyButton.Click();
+        }
+
+        private void DeleteGadget(Window gadgeothekAdminWindow, ListView gadgetGrid)
+        {
+            var firstTableEntrie = gadgetGrid.Rows.First().Cells.Last();
+            firstTableEntrie.Click();
+
+            Window deleteDialogWindow = gadgeothekAdminWindow.MessageBox("Delete gadget");
+            Button okButton = deleteDialogWindow.Get<Button>("Ja");
+            okButton.Click();
         }
 
         [TestMethod]
@@ -142,6 +142,38 @@ namespace GadgeothekAdminTests
             Window deleteDialogWindow = gadgeothekAdminWindow.MessageBox("Delete customer");
             Button okButton = deleteDialogWindow.Get<Button>("Ja");
             okButton.Click();
+        }
+
+        [TestMethod]
+        public void CreateLoanTest()
+        {
+            var gadgeothekAdminWindow = _app.GetWindow("GadgeothekAdmin", InitializeOption.NoCache);
+            var tabControl = gadgeothekAdminWindow.Get<Tab>("Tabs");
+            tabControl.SelectTabPage("Loan List");
+            var loanGrid = gadgeothekAdminWindow.Get<ListView>("LoanTable");
+
+            var countLoan = loanGrid.Items.Count;
+            CreateNewLoan(gadgeothekAdminWindow);
+            var countAddedLoan = loanGrid.Items.Count;
+
+            Assert.IsTrue(countLoan + 1 == countAddedLoan);
+        }
+
+        private void CreateNewLoan(Window gadgeothekAdminWindow)
+        {
+            var createButton = gadgeothekAdminWindow.Get<Button>("LoanCreateButton");
+            createButton.Click();
+            var createLoanWindow = _app.GetWindow("Loan Details");
+            var idTextBox = createLoanWindow.Get<TextBox>("IdTextBox");
+            idTextBox.BulkText = "123";
+            var customerComboBox = createLoanWindow.Get<ComboBox>("CustomerComboBox");
+            customerComboBox.Select(1);
+            var gadgetComboBox = createLoanWindow.Get<ComboBox>("GadgetComboBox");
+            gadgetComboBox.Select(1);
+            var pickupDateDatePicker = createLoanWindow.Get<DateTimePicker>("PickupDateDatePicker");
+            pickupDateDatePicker.Date = System.DateTime.Now;
+            var applyButton = createLoanWindow.Get<Button>("SaveButton");
+            applyButton.Click();
         }
     }
 }

@@ -8,6 +8,8 @@ using TestStack.White.UIItems;
 using TestStack.White.UIItems.ListBoxItems;
 using TestStack.White.UIItems.TabItems;
 using TestStack.White.UIItems.WindowItems;
+using ch.hsr.wpf.gadgeothek.domain;
+using GadgeothekAdmin;
 
 namespace GadgeothekAdminTests
 {
@@ -151,12 +153,24 @@ namespace GadgeothekAdminTests
             var tabControl = gadgeothekAdminWindow.Get<Tab>("Tabs");
             tabControl.SelectTabPage("Loan List");
             var loanGrid = gadgeothekAdminWindow.Get<ListView>("LoanTable");
-
             var countLoan = loanGrid.Items.Count;
             CreateNewLoan(gadgeothekAdminWindow);
             var countAddedLoan = loanGrid.Items.Count;
 
             Assert.IsTrue(countLoan + 1 == countAddedLoan);
+        }
+
+        [TestMethod]
+        public void EndLoanTest()
+        {
+            var gadgeothekAdminWindow = _app.GetWindow("GadgeothekAdmin", InitializeOption.NoCache);
+            var tabControl = gadgeothekAdminWindow.Get<Tab>("Tabs");
+            tabControl.SelectTabPage("Loan List");
+            var loanGrid = gadgeothekAdminWindow.Get<ListView>("LoanTable");
+            EndLoan(gadgeothekAdminWindow, loanGrid);
+            loanGrid.Select(0);
+            var returnDateTimeString = loanGrid.Rows[0].Cells[7].Text;
+            Assert.IsTrue(returnDateTimeString != null);
         }
 
         private void CreateNewLoan(Window gadgeothekAdminWindow)
@@ -174,6 +188,16 @@ namespace GadgeothekAdminTests
             pickupDateDatePicker.Date = System.DateTime.Now;
             var applyButton = createLoanWindow.Get<Button>("SaveButton");
             applyButton.Click();
+        }
+
+        private void EndLoan(Window gadgeothekAdminWindow, ListView loanGrid)
+        {
+            var firstTableEntryEndLoanButton = loanGrid.Rows.First().Cells.Last();
+            firstTableEntryEndLoanButton.Click();
+
+            Window deleteDialogWindow = gadgeothekAdminWindow.MessageBox("End loan");
+            Button okButton = deleteDialogWindow.Get<Button>("Ja");
+            okButton.Click();
         }
     }
 }

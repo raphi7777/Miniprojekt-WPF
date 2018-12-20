@@ -37,9 +37,11 @@ namespace GadgeothekAdmin
             get { return NewLoan.PickupDate; }
             set { NewLoan.PickupDate = value; }
         }
+        public bool Saved { get; set; }
         public CreateNewLoan()
         {
             InitializeComponent();
+            Saved = false;
             _adminService = new LibraryAdminService(url);
             NewLoan = new Loan();
             LoadCustomers();
@@ -51,6 +53,7 @@ namespace GadgeothekAdmin
         {
             if (NewLoan.Id != null && NewLoan.Customer != null && NewLoan.Gadget != null && NewLoan.PickupDate != null && _adminService.AddLoan(NewLoan))
             {
+                Saved = true;
                 Close();
             } 
             else

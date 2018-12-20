@@ -11,7 +11,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -24,7 +24,8 @@
                Content="Name: " 
                Grid.Row="0"
                Grid.Column="0"/>
-        <TextBox Name="TextName" 
+        <TextBox Style="{StaticResource TextBoxStyle}"
+                 Name="TextName" 
                  Text="{Binding Name}"
                  Grid.Row="0" 
                  Grid.Column="1"/>
@@ -32,7 +33,8 @@
                Content="Email: " 
                Grid.Row="1"
                Grid.Column="0"/>
-        <TextBox Name="TextEmail"
+        <TextBox Style="{StaticResource TextBoxStyle}"
+                 Name="TextEmail"
                  Text="{Binding Email}"
                  Grid.Row="1" 
                  Grid.Column="1"/>
@@ -40,7 +42,8 @@
                Content="Password:" 
                Grid.Row="2"
                Grid.Column="0"/>
-        <TextBox Name="TextPassword" 
+        <TextBox Style="{StaticResource TextBoxStyle}"
+                 Name="TextPassword" 
                  Text="{Binding Password}"
                  Grid.Row="2" 
                  Grid.Column="1"/>
@@ -48,11 +51,12 @@
                Content="Studentnumber: " 
                Grid.Row="3"
                Grid.Column="0"/>
-        <TextBox Name="TextStudentnumber"
+        <TextBox Style="{StaticResource TextBoxStyle}"
+                 Name="TextStudentnumber"
                  Text="{Binding Studentnumber}"
                  Grid.Row="3" 
                  Grid.Column="1"
-                 PreviewTextInput="CheckValidation"/>
+                 PreviewTextInput="StudentnumberValidation"/>
         <Button Style="{StaticResource ButtonStyle}"
                 Name="SaveButton"
                 Grid.Row="4"

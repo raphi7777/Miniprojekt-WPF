@@ -30,28 +30,28 @@
                                     Width="*" 
                                     Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Customer" 
-                                    Width="*" 
+                                    Width="3*" 
                                     Binding="{Binding Customer.Name}" />
                 <DataGridTextColumn Header="Gadget" 
-                                    Width="*" 
+                                    Width="3*" 
                                     Binding="{Binding Gadget.Name}" />
                 <DataGridCheckBoxColumn Header="Is lent" 
-                                    Width="*" 
+                                    Width="2*" 
                                     Binding="{Binding IsLent, Mode=OneWay}" />
                 <DataGridCheckBoxColumn Header="Is overdue" 
-                                    Width="*" 
+                                    Width="3*" 
                                     Binding="{Binding IsOverdue, Mode=OneWay}" />
                 <DataGridTextColumn Header="Pickup date" 
-                                    Width="*" 
+                                    Width="4*" 
                                     Binding="{Binding PickupDate}" />
                 <DataGridTextColumn Header="Overdue date" 
-                                    Width="*" 
+                                    Width="4*" 
                                     Binding="{Binding OverDueDate, Mode=OneWay}" />
                 <DataGridTextColumn Header="Return date" 
-                                    Width="*" 
+                                    Width="4*" 
                                     Binding="{Binding ReturnDate}" />
                 <DataGridCheckBoxColumn Header="Was returned" 
-                                    Width="*" 
+                                    Width="3*" 
                                     Binding="{Binding WasReturned, Mode=OneWay}" />
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>

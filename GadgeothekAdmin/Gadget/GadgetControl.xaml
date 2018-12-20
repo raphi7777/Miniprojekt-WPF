@@ -27,7 +27,7 @@
                   ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Inventory Number"
-                                    Width="*" 
+                                    Width="2*" 
                                     Binding="{Binding InventoryNumber}"/>
                 <DataGridTextColumn Header="Manufacturer" 
                                     Width="*" 
@@ -47,7 +47,7 @@
                             <Button Style="{StaticResource EditButtonStyle}"
                                     Name="GadgetEditButton" 
                                     Content="Edit" 
-                                    Click="GadgetEditButton_OnClick" />
+                                    Click="GadgetEditButton_OnClick"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -57,7 +57,7 @@
                             <Button Style="{StaticResource DeleteButtonStyle}"
                                     Name="GadgetDeleteButton" 
                                     Content="Delete" 
-                                    Click="GadgetDeleteButton_OnClick" />
+                                    Click="GadgetDeleteButton_OnClick"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

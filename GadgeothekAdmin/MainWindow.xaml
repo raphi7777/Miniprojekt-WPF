@@ -9,9 +9,11 @@
         Title="GadgeothekAdmin" 
         Style="{StaticResource MainWindowStyle}">
 
-    <TabControl x:Name="Tabs">
+    <TabControl x:Name="Tabs" Style="{StaticResource TabControlStyle}">
+
         <TabItem Header="Gadget List"
-                 x:Name="gadgetList">
+                 x:Name="gadgetList"
+                 Style="{StaticResource TabItemStyle}">
             <Grid>
                 <mycontrols:GadgetControl/>
             </Grid>
@@ -19,14 +21,16 @@
         </TabItem>
 
         <TabItem Header="Customer List"
-                 x:Name="customerList">
+                 x:Name="customerList"
+                 Style="{StaticResource TabItemStyle}">
             <Grid>
                 <mycontrols:CustomerControl/>
             </Grid>
         </TabItem>
 
         <TabItem Header="Loan List"
-                 x:Name="loanList">
+                 x:Name="loanList"
+                 Style="{StaticResource TabItemStyle}">
             <Grid>
                 <mycontrols:LoanControl/>
             </Grid>

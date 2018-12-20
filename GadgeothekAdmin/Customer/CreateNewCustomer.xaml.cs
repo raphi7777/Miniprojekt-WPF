@@ -36,11 +36,11 @@ namespace GadgeothekAdmin
             }
             else
             {
-                MessageBox.Show("You have not filled in all the values yet.", "Value missing", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Please enter Studentnumber", "Value missing", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 
-        private void CheckValidation(object sender, TextCompositionEventArgs e)
+        private void StudentnumberValidation(object sender, TextCompositionEventArgs e)
         {
             var regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);

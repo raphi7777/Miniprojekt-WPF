@@ -24,7 +24,8 @@
                Content="Id: " 
                Grid.Row="0"
                Grid.Column="0"/>
-        <TextBox Text="{Binding Id}"
+        <TextBox Style="{StaticResource TextBoxStyle}"
+                 Text="{Binding Id}"
                  Name="IdTextBox"
                  Grid.Row="0"
                  Grid.Column="1">
@@ -57,7 +58,8 @@
                Content="Pickup date: " 
                Grid.Row="3"
                Grid.Column="0"/>
-        <DatePicker Name="PickupDateDatePicker"
+        <DatePicker Style="{StaticResource DatePickerStyle}"
+                Name="PickupDateDatePicker"
                 SelectedDate="{Binding PickupDate}"      
                 Grid.Row="3" 
                 Grid.Column="1"/>

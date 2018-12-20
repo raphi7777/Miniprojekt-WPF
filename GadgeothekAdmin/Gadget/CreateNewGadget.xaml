@@ -19,7 +19,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -32,7 +32,8 @@
                Content="Manufacturer: " 
                Grid.Row="0"
                Grid.Column="0"/>
-        <TextBox Name="TextManufacturer" 
+        <TextBox Style="{StaticResource TextBoxStyle}"
+                 Name="TextManufacturer" 
                  Text="{Binding Manufacturer}"
                  Grid.Row="0" 
                  Grid.Column="1"/>
@@ -40,7 +41,8 @@
                Content="Name: " 
                Grid.Row="1"
                Grid.Column="0"/>
-        <TextBox Name="TextName"
+        <TextBox Style="{StaticResource TextBoxStyle}"
+                 Name="TextName"
                  Text="{Binding Name}"
                  Grid.Row="1" 
                  Grid.Column="1"/>
@@ -48,7 +50,8 @@
                Content="Price:" 
                Grid.Row="2"
                Grid.Column="0"/>
-        <TextBox Name="TextPrice" 
+        <TextBox Style="{StaticResource TextBoxStyle}"
+                 Name="TextPrice" 
                  Text="{Binding Price}"
                  Grid.Row="2" 
                  Grid.Column="1"
